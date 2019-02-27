@@ -1,7 +1,7 @@
 # cxx-docker-images
-Docker images for building C++ powered apps, with latest cmake, ninja and python installed.
+Docker images for building C++ powered apps.
 
-Images ready to be used for these platforms:
+Available images:
 - gcc 4
 - gcc 5
 - gcc 6
@@ -15,3 +15,13 @@ Images ready to be used for these platforms:
 - android-ndk-r18b
 - emscripten-1.37
 - emscripten-1.38
+
+## installed software
+All images come with the following packages:
+- cmake-3.13
+- ninja
+- ccache
+- curl
+- git
+- python
+
