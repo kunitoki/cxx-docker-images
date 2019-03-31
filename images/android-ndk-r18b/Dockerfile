@@ -16,6 +16,7 @@ RUN apt-get -qq update \
         python3 \
         python3-pip \
         virtualenv \
+        zip \
         unzip \
         curl \
         ccache \
