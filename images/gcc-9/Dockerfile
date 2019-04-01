@@ -1,13 +1,29 @@
-FROM gcc:9
+FROM ubuntu:19.04
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
+
+ARG GCC_VERSION=9
+ARG LIB_ASAN_VERSION=5
+ARG LIB_UBSAN_VERSION=1
+ARG LIB_TSAN_VERSION=0
 
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
+        software-properties-common \
         ca-certificates \
         python \
+        build-essential \
         ninja-build \
+        curl \
         ccache \
         git \
+    && apt-get -qq install -y \
+        g++-${GCC_VERSION} \
+        gcc-${GCC_VERSION} \
+        libasan${LIB_ASAN_VERSION} \
+        libubsan${LIB_UBSAN_VERSION} \
+        libtsan${LIB_TSAN_VERSION} \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_VERSION} 60 \
+        --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_VERSION} \
     && apt-get clean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
