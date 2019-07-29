@@ -26,3 +26,5 @@ RUN curl -SL http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-linux-gnu-ub
 
 ENV PATH="/clang_4.0.0/bin:/usr/bin/cmake/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/clang_4.0.0/lib:${LD_LIBRARY_PATH}"
+ENV CC="/clang_4.0.0/bin/clang"
+ENV CXX="/clang_4.0.0/bin/clang++"
