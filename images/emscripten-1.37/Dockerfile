@@ -16,11 +16,11 @@ RUN apt-get -qq update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://cmake.org/files/v3.13/cmake-3.13.2-Linux-x86_64.sh -o /tmp/curl-install.sh \
-      && chmod u+x /tmp/curl-install.sh \
-      && mkdir /usr/bin/cmake \
-      && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
-      && rm /tmp/curl-install.sh
+RUN curl https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-Linux-x86_64.sh -o /tmp/curl-install.sh \
+    && chmod u+x /tmp/curl-install.sh \
+    && mkdir /usr/bin/cmake \
+    && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
+    && rm /tmp/curl-install.sh
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
