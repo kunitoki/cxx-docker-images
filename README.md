@@ -1,5 +1,5 @@
 # cxx-docker-images
-Docker images for building C++ powered apps.
+Docker images for building C++ powered apps. 
 
 Available images:
 - gcc 4
@@ -15,15 +15,21 @@ Available images:
 - clang 7
 - clang 8
 - android-ndk-r18b
+- android-ndk-r19c
+- android-ndk-r20
 - emscripten-1.37
 - emscripten-1.38
 
 ## installed software
 All images come with the following packages:
-- cmake-3.13
+- cmake-3.14.6
 - ninja
 - ccache
 - curl
 - git
 - python
 
+## links
+
+https://github.com/kunitoki/cxx-docker-images
+https://hub.docker.com/?namespace=kunitoki
