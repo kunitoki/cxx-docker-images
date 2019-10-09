@@ -14,6 +14,7 @@ Available images:
 - clang 6
 - clang 7
 - clang 8
+- clang 9
 - android-ndk-r18b
 - android-ndk-r19c
 - android-ndk-r20
