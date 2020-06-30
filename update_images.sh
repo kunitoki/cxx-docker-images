@@ -16,7 +16,7 @@ if [ "${MACHINE_STATUS}" != "Running" ]; then
   eval "$(docker-machine env default)"
 fi
 
-for IMAGE_NAME in gcc-4 gcc-5 gcc-6 gcc-7 gcc-8; do
+for IMAGE_NAME in gcc-4 gcc-5 gcc-6 gcc-7 gcc-8 gcc-9 gcc-10; do
   pushd images/${IMAGE_NAME}
   echo "Building image ${IMAGE_NAME} --------------------------------------------"
   docker build --force-rm -t kunitoki/${IMAGE_NAME} .
@@ -29,7 +29,7 @@ for IMAGE_NAME in gcc-4 gcc-5 gcc-6 gcc-7 gcc-8; do
   popd
 done
 
-for IMAGE_NAME in clang-3 clang-4 clang-5 clang-6 clang-7; do
+for IMAGE_NAME in clang-3 clang-4 clang-5 clang-6 clang-7 clang-8 clang-9 clang-10; do
   pushd images/${IMAGE_NAME}
   echo "Building image ${IMAGE_NAME} --------------------------------------------"
   docker build --force-rm -t kunitoki/${IMAGE_NAME} .

@@ -7,6 +7,7 @@ Available images:
 - gcc 7
 - gcc 8
 - gcc 9
+- gcc 10
 
 - clang 3
 - clang 4
@@ -15,6 +16,7 @@ Available images:
 - clang 7
 - clang 8
 - clang 9
+- clang 10
 
 - android-ndk-r18b
 - android-ndk-r19c
@@ -27,7 +29,7 @@ Available images:
 
 ## Installed software
 All images come with the following packages:
-- cmake-3.16.3
+- cmake-3.17.1
 - ninja
 - ccache
 - curl
