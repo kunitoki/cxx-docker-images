@@ -15,8 +15,11 @@ RUN apt-get -qq update -y \
         unzip \
         upx-ucl \
         pkg-config \
+        zlib1g-dev \
+        libpng-dev \
         libcurl3-dev \
         libcurl4-openssl-dev \
+        libssl-dev \
         libasound2-dev \
         libfreetype6-dev \
         libxcomposite-dev \
@@ -28,8 +31,6 @@ RUN apt-get -qq update -y \
         x11proto-randr-dev \
         x11proto-render-dev \
         x11proto-xinerama-dev \
-        libpng-dev \
-        zlib1g-dev \
         freeglut3-dev \
         mesa-common-dev \
     && apt-get clean -y \
