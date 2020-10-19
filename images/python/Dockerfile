@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -16,6 +16,7 @@ RUN apt-get -qq update -y \
         make \
         curl \
         xz-utils \
+        zstd \
         zip \
         unzip \
         upx-ucl \
@@ -29,7 +30,6 @@ RUN apt-get -qq update -y \
         libssl-dev \
         libreadline-dev \
         libgdbm-dev \
-        libgdbm-compat-dev \
         libffi-dev \
         openssl \
         sqlite3 \
