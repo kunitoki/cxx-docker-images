@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
 ARG CMAKE_VERSION=3.17.1
@@ -23,8 +23,8 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
     && rm /tmp/curl-install.sh
 
-RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-16.04 clang_11.0.0
+RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz | tar -xJC . \
+    && mv clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04 clang_11.0.0
 
 ENV PATH="/clang_11.0.0/bin:/usr/bin/cmake/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/clang_11.0.0/lib:${LD_LIBRARY_PATH}"
