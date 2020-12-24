@@ -1,7 +1,7 @@
 FROM openjdk:9-jdk
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
-ARG CMAKE_VERSION=3.17.1
+ARG CMAKE_VERSION=3.18.3
 
 WORKDIR /opt
 

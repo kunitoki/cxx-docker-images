@@ -1,7 +1,7 @@
 FROM gcc:7
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
-ARG CMAKE_VERSION=3.17.1
+ARG CMAKE_VERSION=3.18.3
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \

@@ -1,7 +1,7 @@
 FROM debian:buster
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
-ARG CMAKE_VERSION=3.17.1
+ARG CMAKE_VERSION=3.18.3
 ARG EMSCRIPTEN_VERSION=1.37.40
 
 RUN apt-get -qq update -y \
