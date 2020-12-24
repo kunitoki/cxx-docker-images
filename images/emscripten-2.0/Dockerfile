@@ -2,7 +2,7 @@ FROM debian:buster
 MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
 
 ARG CMAKE_VERSION=3.18.3
-ARG EMSCRIPTEN_VERSION=2.0.5-fastcomp
+ARG EMSCRIPTEN_VERSION=2.0.5
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
