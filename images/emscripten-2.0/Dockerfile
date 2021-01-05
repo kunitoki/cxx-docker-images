@@ -7,7 +7,7 @@ ARG EMSCRIPTEN_VERSION=2.0.5
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
-        python \
+        python3 \
         gnupg \
         ninja-build \
         ccache \
@@ -19,6 +19,8 @@ RUN apt-get -qq update -y \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/curl-install.sh \
     && chmod u+x /tmp/curl-install.sh \
