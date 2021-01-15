@@ -35,6 +35,11 @@ RUN apt-get -qq update -y \
         x11proto-xinerama-dev \
         freeglut3-dev \
         mesa-common-dev \
+        libglu1-mesa-dev \
+        libwebkit2gtk-4.0-dev \
+        libgtk-3-dev \
+        libjack-jackd2-dev \
+        ladspa-sdk \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
