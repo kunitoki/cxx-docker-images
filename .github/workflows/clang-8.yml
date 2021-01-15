@@ -1,11 +1,11 @@
-name: juce Docker Image
+name: clang-8 Docker Image
 
 on:
   push:
     branches: [ master ]
     paths:
-      - "**/juce/Dockerfile"
-      - "**/juce.yml"
+      - "**/clang-8/*"
+      - "**/clang-8.yml"
   pull_request:
     branches: [ master ]
 
@@ -30,9 +30,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: images/juce/
-          file: images/juce/Dockerfile
-          tags: kunitoki/juce:latest
+          context: images/clang-8/
+          file: images/clang-8/Dockerfile
+          tags: kunitoki/clang-8:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
