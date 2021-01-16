@@ -33,7 +33,7 @@ jobs:
         with:
           push: true
           context: images/juce/
-          file: Dockerfile
+          file: images/juce/Dockerfile
           tags: kunitoki/juce:latest
 
       - name: Image digest
