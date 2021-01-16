@@ -30,7 +30,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: images/clang-5/
           file: images/clang-5/Dockerfile
           tags: kunitoki/clang-5:latest
 

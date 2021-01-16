@@ -28,10 +28,10 @@ jobs:
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
+        wporking-directory: images/juce/
         with:
           push: true
-          context: images/juce/
-          file: images/juce/Dockerfile
+          file: Dockerfile
           tags: kunitoki/juce:latest
 
       - name: Image digest
