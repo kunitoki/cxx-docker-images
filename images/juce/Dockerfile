@@ -40,6 +40,8 @@ RUN apt-get -qq update -y \
         libgtk-3-dev \
         libjack-jackd2-dev \
         ladspa-sdk \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9 \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
