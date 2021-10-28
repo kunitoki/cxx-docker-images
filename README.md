@@ -18,6 +18,8 @@ Available images:
 - clang 9
 - clang 10
 - clang 11
+- clang 12
+- clang 13
 
 - android-ndk-r18b
 - android-ndk-r19c
@@ -30,7 +32,7 @@ Available images:
 - emscripten-2.0
 
 - juce (docker image for building JUCE X11 applications)
-- python (docker image for building CPythonf from source)
+- python (docker image for building CPython from source)
 
 ## Installed software
 All images come with the following packages:
