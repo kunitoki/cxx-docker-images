@@ -24,7 +24,7 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && rm /tmp/curl-install.sh
 
 RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/clang+llvm-12.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-12.0.1-x86_64-linux-gnu-ubuntu-16.04 clang_12.0.1
+    && mv clang+llvm-12.0.1-x86_64-linux-gnu-ubuntu- clang_12.0.1
 
 ENV PATH="/clang_12.0.1/bin:/usr/bin/cmake/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/clang_12.0.1/lib:${LD_LIBRARY_PATH}"
