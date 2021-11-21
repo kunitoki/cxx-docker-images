@@ -18,10 +18,11 @@ RUN apt-get -qq update -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN add-apt-repository ppa:jonathonf/gcc-8.0 \
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         gcc-8 \
+        g++-8 \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
