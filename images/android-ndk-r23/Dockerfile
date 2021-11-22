@@ -12,7 +12,7 @@ ENV PATH "${PATH}:/usr/bin/cmake/bin:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/p
 ENV SDKMANAGER_OPTS "--add-modules java.se.ee"
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138 \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
