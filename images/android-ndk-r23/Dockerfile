@@ -11,6 +11,9 @@ ENV ANDROID_NDK_HOME /opt/android-ndk-linux
 ENV PATH "${PATH}:/usr/bin/cmake/bin:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${PATH}:${ANDROID_HOME}/tools"
 ENV SDKMANAGER_OPTS "--add-modules java.se.ee"
 
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138 \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
