@@ -44,7 +44,7 @@ RUN mkdir -p /opt/android-sdk-linux \
     && echo y | sdkmanager "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services" \
     && sdkmanager "cmake;3.6.4111459"
 
-RUN curl -SL https://dl.google.com/android/repository/android-ndk-r20-linux-x86_64.zip -o android-ndk.zip \
+RUN curl -SL https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip -o android-ndk.zip \
     && unzip android-ndk.zip \
     && rm -f android-ndk.zip \
-    && mv android-ndk-r20 android-ndk-linux
+    && mv android-ndk-r20b android-ndk-linux

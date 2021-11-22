@@ -42,9 +42,9 @@ RUN mkdir -p /opt/android-sdk-linux \
     && rm -f sdk-tools.zip \
     && echo y | sdkmanager "build-tools;28.0.2" "platforms;android-28" \
     && echo y | sdkmanager "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services" \
-    && sdkmanager "cmake;3.6.4111459"
+    && sdkmanager "cmake;3.10.2.4988404"
 
-RUN curl -SL https://dl.google.com/android/repository/android-ndk-r21e-linux-x86_64.zip -o android-ndk.zip \
+RUN curl -SL https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip -o android-ndk.zip \
     && unzip android-ndk.zip \
     && rm -f android-ndk.zip \
-    && mv android-ndk-r21e android-ndk-linux
+    && mv android-ndk-r22b android-ndk-linux
