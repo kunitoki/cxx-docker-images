@@ -6,6 +6,7 @@ ARG CMAKE_VERSION=3.18.3
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
+        software-properties-common \
         build-essential \
         python \
         ninja-build \
@@ -13,6 +14,15 @@ RUN apt-get -qq update -y \
         xz-utils \
         curl \
         git \
+    && apt-get clean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt-get -qq update -y \
+    && apt-get -qq install -y --no-install-recommends \
+        gcc-9 \
+        g++-9 \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
