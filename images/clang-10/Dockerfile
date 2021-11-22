@@ -17,6 +17,15 @@ RUN apt-get -qq update -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt-get -qq update -y \
+    && apt-get -qq install -y --no-install-recommends \
+        gcc-8 \
+        g++-8 \
+    && apt-get clean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/curl-install.sh \
     && chmod u+x /tmp/curl-install.sh \
     && mkdir /usr/bin/cmake \
