@@ -6,6 +6,7 @@ ARG CMAKE_VERSION=3.18.3
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
+        software-properties-common \
         build-essential \
         python \
         ninja-build \
