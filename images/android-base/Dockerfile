@@ -66,7 +66,7 @@ RUN curl -SL https://dl.google.com/android/repository/commandlinetools-linux-685
 
 RUN yes | sdkmanager --licenses
 RUN touch /root/.android/repositories.cfg
-RUN yes | sdkmanager "tools", "platform-tools"
+RUN yes | sdkmanager "platform-tools"
 RUN yes | sdkmanager --update --channel=0
 
 # Please keep all sections in descending order!
