@@ -12,7 +12,7 @@ ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin"
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmake/${CMAKE_VERSION}/bin"
 
 RUN apt-get -qq update -y \
-    && apt-get -qq install -y --no-install-recommends \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends \
         ca-certificates \
         software-properties-common \
         build-essential \
@@ -33,7 +33,6 @@ RUN apt-get -qq update -y \
 RUN add-apt-repository ppa:openjdk-r/ppa \
     && apt-get -qq update -y \
     && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends \
-        openjdk-8-jdk \
         openjdk-11-jdk \
         libc6 \
         libgcc1 \
@@ -41,9 +40,6 @@ RUN add-apt-repository ppa:openjdk-r/ppa \
         libncurses5 \
         libstdc++6 \
         libz1 \
-        libvirt-clients \
-        libvirt-daemon-system \
-        virt-manager \
         net-tools \
     && apt-get clean -y \
     && apt-get autoremove -y \
