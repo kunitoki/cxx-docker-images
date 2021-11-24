@@ -9,10 +9,7 @@ ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/platform-tools"
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin"
-ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/emulator"
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmake/${CMAKE_VERSION}/bin"
-ENV QT_QPA_PLATFORM offscreen
-ENV LD_LIBRARY_PATH ${ANDROID_SDK_ROOT}/emulator/lib64:${ANDROID_SDK_ROOT}/emulator/lib64/qt/lib
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
@@ -48,7 +45,6 @@ RUN add-apt-repository ppa:openjdk-r/ppa \
         libvirt-daemon-system \
         virt-manager \
         net-tools \
-        libqt5widgets5 \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
@@ -74,7 +70,7 @@ RUN curl -SL https://dl.google.com/android/repository/commandlinetools-linux-685
 
 RUN yes | sdkmanager --licenses
 RUN touch /root/.android/repositories.cfg
-RUN yes | sdkmanager "emulator" "platform-tools"
+RUN yes | sdkmanager "platform-tools"
 RUN yes | sdkmanager --update --channel=0
 
 # Please keep all sections in descending order!
@@ -101,16 +97,9 @@ RUN yes | sdkmanager \
     "build-tools;22.0.1" \
     "build-tools;21.1.2" \
     "build-tools;19.1.0" \
-    "system-images;android-30;google_apis;x86_64" \
     "extras;android;m2repository" \
     "extras;google;m2repository" \
     "extras;google;google_play_services" \
     "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" \
     "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1" \
     "cmake;3.18.1"
-
-RUN echo "no" | \
-    avdmanager --verbose create avd \
-        --name "generic-android-phone" \
-        --package "system-images;android-30;google_apis;x86_64" \
-        --force
