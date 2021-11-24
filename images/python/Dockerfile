@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
+LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 

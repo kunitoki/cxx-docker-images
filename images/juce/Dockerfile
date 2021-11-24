@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
+LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.18.3
 
@@ -49,5 +49,10 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && mkdir -p /cmake \
     && /tmp/curl-install.sh --skip-license --prefix=/cmake \
     && rm /tmp/curl-install.sh
+
+RUN useradd -rm -d /home/juce -s /bin/bash -g root -G sudo -u 1001 juce \
+    && mkdir -p /home/juce/.config
+USER juce
+WORKDIR /home/juce
 
 ENV PATH="/cmake/bin:${PATH}"

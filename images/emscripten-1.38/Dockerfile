@@ -1,5 +1,5 @@
 FROM debian:buster
-MAINTAINER Lucio Asnaghi <kunitoki@gmail.com>
+LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.18.3
 ARG EMSCRIPTEN_VERSION=1.38.48
