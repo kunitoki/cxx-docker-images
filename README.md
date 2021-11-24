@@ -1,42 +1,16 @@
 # Docker images for building C++ powered apps
 
 Available images:
-- gcc 4
-- gcc 5
-- gcc 6
-- gcc 7
-- gcc 8
-- gcc 9
-- gcc 10
-
-- clang 3
-- clang 4
-- clang 5
-- clang 6
-- clang 7
-- clang 8
-- clang 9
-- clang 10
-- clang 11
-- clang 12
-- clang 13
-
-- android-ndk-r18b
-- android-ndk-r19c
-- android-ndk-r20
-- android-ndk-r21
-
-- emscripten-1.37
-- emscripten-1.38
-- emscripten-1.39
-- emscripten-2.0
-
+- gcc 4, 5, 6, 7, 8, 9, 10, 11
+- clang 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+- android-ndk 18, 19, 20, 21, 22, 23
+- emscripten 1.37, 1.38, 1.39, 2.0
 - juce (docker image for building JUCE X11 applications)
 - python (docker image for building CPython from source)
 
 ## Installed software
 All images come with the following packages:
-- cmake-3.18.3
+- cmake-3.18.3 (android images fetch 3.18.1 from supported cmake versions)
 - ninja
 - ccache
 - curl
