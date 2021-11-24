@@ -1,7 +1,7 @@
 FROM kunitoki:android-base
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG NDK_VERSION=21.4.7075529
+ARG NDK_VERSION=19.2.5345600
 
 ENV ANDROID_NDK /opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_HOME /opt/android-sdk-linux/ndk/${NDK_VERSION}

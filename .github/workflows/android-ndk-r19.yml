@@ -1,11 +1,11 @@
-name: android-ndk-r18b Docker Image
+name: android-ndk-r19 Docker Image
 
 on:
   push:
     branches: [ master ]
     paths:
-      - "**/android-ndk-r18b/*"
-      - "**/android-ndk-r18b.yml"
+      - "**/android-ndk-r19/*"
+      - "**/android-ndk-r19.yml"
   pull_request:
     branches: [ master ]
 
@@ -32,9 +32,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: images/android-ndk-r18b/
-          file: images/android-ndk-r18b/Dockerfile
-          tags: kunitoki/android-ndk-r18b:latest
+          context: images/android-ndk-r19/
+          file: images/android-ndk-r19/Dockerfile
+          tags: kunitoki/android-ndk-r19:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
