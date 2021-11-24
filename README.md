@@ -8,6 +8,7 @@ Available images:
 - gcc 8
 - gcc 9
 - gcc 10
+- gcc 11
 
 - clang 3
 - clang 4
@@ -21,10 +22,12 @@ Available images:
 - clang 12
 - clang 13
 
-- android-ndk-r18b
-- android-ndk-r19c
+- android-ndk-r18
+- android-ndk-r19
 - android-ndk-r20
 - android-ndk-r21
+- android-ndk-r22
+- android-ndk-r23
 
 - emscripten-1.37
 - emscripten-1.38
@@ -36,7 +39,7 @@ Available images:
 
 ## Installed software
 All images come with the following packages:
-- cmake-3.18.3
+- cmake-3.18.3 (android images fetch 3.18.1 from supported cmake versions)
 - ninja
 - ccache
 - curl
