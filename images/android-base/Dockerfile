@@ -70,36 +70,20 @@ RUN curl -SL https://dl.google.com/android/repository/commandlinetools-linux-685
 
 RUN yes | sdkmanager --licenses
 RUN touch /root/.android/repositories.cfg
-RUN yes | sdkmanager "platform-tools"
+RUN yes | sdkmanager "tools", "platform-tools"
 RUN yes | sdkmanager --update --channel=0
 
 # Please keep all sections in descending order!
 RUN yes | sdkmanager \
     "platforms;android-30" \
     "platforms;android-29" \
-    "platforms;android-28" \
-    "platforms;android-27" \
-    "platforms;android-26" \
-    "platforms;android-25" \
-    "platforms;android-24" \
-    "platforms;android-23" \
-    "platforms;android-22" \
-    "platforms;android-21" \
-    "platforms;android-19" \
     "build-tools;30.0.3" \
     "build-tools;29.0.3" \
     "build-tools;28.0.3" \
-    "build-tools;27.0.3" \
-    "build-tools;26.0.2" \
-    "build-tools;25.0.3" \
-    "build-tools;24.0.3" \
-    "build-tools;23.0.3" \
-    "build-tools;22.0.1" \
-    "build-tools;21.1.2" \
-    "build-tools;19.1.0" \
     "extras;android;m2repository" \
     "extras;google;m2repository" \
     "extras;google;google_play_services" \
     "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" \
     "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1" \
-    "cmake;3.18.1"
+    "cmake;3.18.1" \
+    "cmake;3.10.2.4988404"
