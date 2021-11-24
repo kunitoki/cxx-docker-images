@@ -1,4 +1,4 @@
-FROM kunitoki:android-base
+FROM kunitoki/android-base:latest
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG NDK_VERSION=22.1.7171670
