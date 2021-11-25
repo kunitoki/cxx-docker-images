@@ -1,15 +1,15 @@
 FROM ubuntu:18.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.18.1
+ARG CMAKE_VERSION=3.18.3
 
 WORKDIR /opt
 
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
 ENV ANDROID_HOME /opt/android-sdk-linux
+ENV PATH "${PATH}:/usr/bin/cmake/bin"
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/platform-tools"
 ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin"
-ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmake/${CMAKE_VERSION}/bin"
 
 RUN apt-get -qq update -y \
     && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends \
@@ -74,12 +74,14 @@ RUN yes | sdkmanager \
     "platforms;android-30" \
     "platforms;android-29" \
     "build-tools;30.0.3" \
-    "build-tools;29.0.3" \
-    "build-tools;28.0.3" \
     "extras;android;m2repository" \
     "extras;google;m2repository" \
     "extras;google;google_play_services" \
     "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" \
-    "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1" \
-    "cmake;3.18.1" \
-    "cmake;3.10.2.4988404"
+    "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1"
+
+RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/curl-install.sh \
+    && chmod u+x /tmp/curl-install.sh \
+    && mkdir /usr/bin/cmake \
+    && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
+    && rm /tmp/curl-install.sh
