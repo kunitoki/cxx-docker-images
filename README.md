@@ -10,7 +10,7 @@ Available images:
 
 ## Installed software
 All images come with the following packages:
-- cmake-3.18.3 (android images fetch 3.18.1 from supported cmake versions)
+- cmake-3.18.3
 - ninja
 - ccache
 - curl
