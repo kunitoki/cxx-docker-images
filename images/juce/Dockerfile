@@ -52,10 +52,11 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
 
 RUN useradd -rm -d /home/juce -s /bin/bash -g root -G sudo -u 1001 juce \
     && mkdir -p /home/juce/.config \
-        && chown juce /home/juce && chgrp juce /home/juce \
-        && chown juce /home/juce/.config && chgrp juce /home/juce/.config \
+    && chown juce /home/juce \
+    && chown juce /home/juce/.config \
     && mkdir -p /opt/workspace \
-        && chown juce /opt/workspace && chgrp juce /opt/workspace
+    && chmod 0777 /opt/workspace \
+    && chown juce /opt/workspace
 USER juce
 WORKDIR /home/juce
 
