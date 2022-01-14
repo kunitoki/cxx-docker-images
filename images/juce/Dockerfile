@@ -50,14 +50,10 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/cmake \
     && rm /tmp/curl-install.sh
 
-RUN useradd -rm -d /home/juce -s /bin/bash -g root -G sudo -u 1001 juce \
-    && mkdir -p /home/juce/.config \
-    && chown juce /home/juce \
-    && chown juce /home/juce/.config \
-    && mkdir -p /opt/workspace \
-    && chmod 0777 /opt/workspace \
-    && chown juce /opt/workspace
-USER juce
-WORKDIR /home/juce
+#RUN useradd -rm -d /home/juce -s /bin/bash -g root -G sudo -u 1001 juce \
+#    && mkdir -p /home/juce/.config && chown juce /home/juce && chown juce /home/juce/.config \
+#    && mkdir -p /opt/workspace && chmod 0777 /opt/workspace && chown juce /opt/workspace
+#USER juce
+#WORKDIR /home/juce
 
 ENV PATH="/cmake/bin:${PATH}"
