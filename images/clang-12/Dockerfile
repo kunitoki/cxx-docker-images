@@ -21,8 +21,8 @@ RUN apt-get -qq update -y \
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
-        gcc-10 \
-        g++-10 \
+        gcc-9 \
+        g++-9 \
         libc++-dev \
     && apt-get clean -y \
     && apt-get autoremove -y \
