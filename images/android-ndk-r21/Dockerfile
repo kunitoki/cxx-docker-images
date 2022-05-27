@@ -7,3 +7,4 @@ ENV ANDROID_NDK /opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_HOME /opt/android-sdk-linux/ndk/${NDK_VERSION}
 
 RUN yes | sdkmanager "ndk;${NDK_VERSION}"
+
