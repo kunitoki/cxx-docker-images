@@ -10,7 +10,7 @@ Available images:
 
 ## Installed software
 All images come with the following packages:
-- cmake-3.18.3
+- cmake 3.23.2
 - ninja
 - ccache
 - curl

@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.18.3
+ARG CMAKE_VERSION=3.23.2
 
 WORKDIR /opt
 
