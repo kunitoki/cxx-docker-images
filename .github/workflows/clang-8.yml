@@ -6,8 +6,6 @@ on:
     paths:
       - "**/clang-8/*"
       - "**/clang-8.yml"
-  pull_request:
-    branches: [ master ]
 
 jobs:
   main:

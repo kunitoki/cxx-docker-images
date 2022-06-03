@@ -6,8 +6,6 @@ on:
     paths:
       - "**/gcc-9/*"
       - "**/gcc-9.yml"
-  pull_request:
-    branches: [ master ]
 
 jobs:
   main:

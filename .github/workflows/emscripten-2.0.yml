@@ -6,8 +6,6 @@ on:
     paths:
       - "**/emscripten-2.0/*"
       - "**/emscripten-2.0.yml"
-  pull_request:
-    branches: [ master ]
 
 jobs:
   main:

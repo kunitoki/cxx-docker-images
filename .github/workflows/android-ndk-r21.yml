@@ -6,8 +6,6 @@ on:
     paths:
       - "**/android-ndk-r21/*"
       - "**/android-ndk-r21.yml"
-  pull_request:
-    branches: [ master ]
 
 jobs:
   main:
