@@ -6,6 +6,7 @@ ARG CMAKE_VERSION=3.23.2
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
+        software-properties-common \
         build-essential \
         python \
         ninja-build \
@@ -22,6 +23,7 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get -qq install -y --no-install-recommends \
         gcc-9 \
         g++-9 \
+        libc++-dev \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
