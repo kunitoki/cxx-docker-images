@@ -2,7 +2,7 @@ FROM debian:buster
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.23.2
-ARG EMSCRIPTEN_VERSION=2.0.5
+ARG EMSCRIPTEN_VERSION=2.0.0
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
