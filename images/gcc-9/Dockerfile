@@ -21,3 +21,4 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && rm /tmp/curl-install.sh
 
 ENV PATH="/usr/bin/cmake/bin:${PATH}"
+
