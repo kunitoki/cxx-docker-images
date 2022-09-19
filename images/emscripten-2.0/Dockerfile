@@ -17,8 +17,6 @@ RUN apt-get -qq update -y \
         xz-utils \
         libxml2 \
         libatomic1 \
-        nodejs \
-        npm \
         curl \
         git \
     && apt-get clean -y \
@@ -27,11 +25,11 @@ RUN apt-get -qq update -y \
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
-RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/curl-install.sh \
-    && chmod u+x /tmp/curl-install.sh \
-    && mkdir /usr/bin/cmake \
-    && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
-    && rm /tmp/curl-install.sh
+RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/cmake-install.sh \
+    && chmod u+x /tmp/cmake-install.sh \
+    && mkdir /cmake \
+    && /tmp/cmake-install.sh --skip-license --prefix=/cmake \
+    && rm /tmp/cmake-install.sh
 
 #RUN git clone https://github.com/emscripten-core/emsdk.git \
 #    && cd emsdk \
@@ -44,6 +42,6 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
 #RUN chmod 755 /entrypoint.sh
 #ENTRYPOINT ["/entrypoint.sh"]
 
-ENV PATH="/usr/bin/cmake/bin:${PATH}"
+ENV PATH="/cmake/bin:${PATH}"
 
 #CMD ["/bin/bash"]
