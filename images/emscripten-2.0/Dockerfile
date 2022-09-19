@@ -1,8 +1,8 @@
-FROM ubuntu:22.04
+FROM emscripten/emsdk:2.0.34
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.23.2
-ARG EMSCRIPTEN_VERSION=2.0.34
+#ARG EMSCRIPTEN_VERSION=2.0.34
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
@@ -33,19 +33,17 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
     && rm /tmp/curl-install.sh
 
-ENV EMSDK /emsdk
+#RUN git clone https://github.com/emscripten-core/emsdk.git \
+#    && cd emsdk \
+#    && ./emsdk install ${EMSCRIPTEN_VERSION} \
+#    && ./emsdk activate ${EMSCRIPTEN_VERSION} --embedded \
+#    && ./emsdk construct_env > /dev/null \
+#    && cd ..
 
-RUN git clone https://github.com/emscripten-core/emsdk.git \
-    && cd emsdk \
-    && ./emsdk install ${EMSCRIPTEN_VERSION} \
-    && ./emsdk activate ${EMSCRIPTEN_VERSION} --embedded \
-    && ./emsdk construct_env > /dev/null \
-    && cd ..
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+#COPY entrypoint.sh /entrypoint.sh
+#RUN chmod 755 /entrypoint.sh
+#ENTRYPOINT ["/entrypoint.sh"]
 
 ENV PATH="/usr/bin/cmake/bin:${PATH}"
 
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
