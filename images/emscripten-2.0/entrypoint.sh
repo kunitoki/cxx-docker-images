@@ -4,7 +4,7 @@ set -e
 
 # determine system node.js
 NODE=$(which node)
-sed -i'.old' "/^NODE_JS/s/= .*/= '${NODE//\//\\/}'/" /emsdk/.emscripten
+sed -i "/NODE_JS = .*/NODE_JS = '${NODE}'/" /emsdk/.emscripten
 
 # set EMSDK environment variables
 . /emsdk/emsdk_env.sh > /dev/null
