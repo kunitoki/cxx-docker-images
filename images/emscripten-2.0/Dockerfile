@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:22.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.23.2
@@ -14,6 +14,7 @@ RUN apt-get -qq update -y \
         bzip2 \
         xz-utils \
         libxml2 \
+        libatomic1 \
         curl \
         git \
     && apt-get clean -y \
