@@ -3,7 +3,7 @@
 set -e
 
 # determine system node.js
-NODE=$(which node)
+NODE=$(which nodejs)
 sed -i "/NODE_JS = .*/NODE_JS = '${NODE}'/" /emsdk/.emscripten
 
 # set EMSDK environment variables
