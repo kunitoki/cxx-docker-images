@@ -6,7 +6,9 @@ ARG EMSCRIPTEN_VERSION=2.0.34
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
+        software-properties-common \
         ca-certificates \
+        build-essential \
         python3 \
         gnupg \
         ninja-build \
@@ -15,6 +17,8 @@ RUN apt-get -qq update -y \
         xz-utils \
         libxml2 \
         libatomic1 \
+        nodejs \
+        npm \
         curl \
         git \
     && apt-get clean -y \
@@ -29,11 +33,13 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
     && rm /tmp/curl-install.sh
 
+ENV EMSDK /emsdk
+
 RUN git clone https://github.com/emscripten-core/emsdk.git \
     && cd emsdk \
-    && ./emsdk update-tags \
     && ./emsdk install ${EMSCRIPTEN_VERSION} \
-    && ./emsdk activate ${EMSCRIPTEN_VERSION} \
+    && ./emsdk activate ${EMSCRIPTEN_VERSION} --embedded \
+    && ./emsdk construct_env > /dev/null \
     && cd ..
 
 COPY entrypoint.sh /entrypoint.sh
