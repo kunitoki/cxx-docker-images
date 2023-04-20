@@ -34,10 +34,10 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
     && rm /tmp/curl-install.sh
 
-RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/clang+llvm-15.0.6-x86_64-linux-gnu-ubuntu-18.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-15.0.6-x86_64-linux-gnu-ubuntu-18.04 clang_15.0.0
+RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz | tar -xJC . \
+    && mv clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_16.0.0
 
-ENV PATH="/clang_15.0.0/bin:/usr/bin/cmake/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/clang_15.0.0/lib:${LD_LIBRARY_PATH}"
-ENV CC="/clang_15.0.0/bin/clang"
-ENV CXX="/clang_15.0.0/bin/clang++"
+ENV PATH="/clang_16.0.0/bin:/usr/bin/cmake/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/clang_16.0.0/lib:${LD_LIBRARY_PATH}"
+ENV CC="/clang_16.0.0/bin/clang"
+ENV CXX="/clang_16.0.0/bin/clang++"
