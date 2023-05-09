@@ -8,6 +8,7 @@ RUN apt-get -qq update -y \
         ca-certificates \
         python3 \
         ninja-build \
+        libc-bin \
         ccache \
         git \
     && apt-get clean -y \
