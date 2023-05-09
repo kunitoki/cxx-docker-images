@@ -6,7 +6,7 @@ ARG CMAKE_VERSION=3.23.2
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
-        python \
+        python3 \
         ninja-build \
         ccache \
         git \
