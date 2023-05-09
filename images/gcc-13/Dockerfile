@@ -1,4 +1,4 @@
-FROM gcc:12
+FROM gcc:13
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.23.2
