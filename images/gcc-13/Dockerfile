@@ -8,8 +8,8 @@ RUN apt-get -qq update -y \
         ca-certificates \
         python3 \
         ninja-build \
-        libc-bin \
-        binutils \
+        glibc-tools \
+        binutils-common \
         ccache \
         git \
     && apt-get clean -y \
