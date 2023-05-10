@@ -9,6 +9,7 @@ RUN apt-get -qq update -y \
         python3 \
         ninja-build \
         libc-bin \
+        binutils \
         ccache \
         git \
     && apt-get clean -y \
