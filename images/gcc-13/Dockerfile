@@ -8,7 +8,7 @@ RUN apt-get -qq update -y \
         ca-certificates \
         python3 \
         ninja-build \
-        glibc-tools \
+        libc-dev-bin \
         binutils-common \
         ccache \
         git \
