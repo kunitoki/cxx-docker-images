@@ -8,7 +8,7 @@ RUN apt-get -qq update -y \
         ca-certificates \
         software-properties-common \
         build-essential \
-        python \
+        python-is-python3 \
         ninja-build \
         ccache \
         xz-utils \
