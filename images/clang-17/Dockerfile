@@ -6,6 +6,7 @@ ARG CMAKE_VERSION=3.23.2
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
+        gpg-agent \
         software-properties-common \
         build-essential \
         python-is-python3 \
