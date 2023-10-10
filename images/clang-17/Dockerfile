@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.23.2
@@ -34,10 +34,10 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
     && rm /tmp/curl-install.sh
 
-RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_16.0.0
+RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz | tar -xJC . \
+    && mv clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04 clang_17.0.2
 
-ENV PATH="/clang_16.0.0/bin:/usr/bin/cmake/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/clang_16.0.0/lib:${LD_LIBRARY_PATH}"
-ENV CC="/clang_16.0.0/bin/clang"
-ENV CXX="/clang_16.0.0/bin/clang++"
+ENV PATH="/clang_17.0.2/bin:/usr/bin/cmake/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/clang_17.0.2/lib:${LD_LIBRARY_PATH}"
+ENV CC="/clang_17.0.2/bin/clang"
+ENV CXX="/clang_17.0.2/bin/clang++"
