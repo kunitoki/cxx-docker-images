@@ -3,7 +3,8 @@ LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.28.0
 
-RUN echo "deb [trusted=yes] http://cdn-fastly.deb.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list.d/jessie.list \
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C718D3B5072E1F5 \
+    && echo "deb [trusted=yes] http://cdn-fastly.deb.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list.d/jessie.list \
     && echo "deb [trusted=yes] http://archive.debian.org/debian/ jessie main contrib non-free" > /etc/apt/sources.list.d/jessie-backports.list \
     && sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
 
