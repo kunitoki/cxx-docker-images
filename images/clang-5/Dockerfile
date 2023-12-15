@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.23.2
+ARG CMAKE_VERSION=3.28.0
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
@@ -24,9 +24,9 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && rm /tmp/curl-install.sh
 
 RUN curl -SL http://releases.llvm.org/5.0.2/clang+llvm-5.0.2-x86_64-linux-gnu-ubuntu-16.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-5.0.2-x86_64-linux-gnu-ubuntu-16.04 clang_5.0.2
+    && mv clang+llvm-5.0.2-x86_64-linux-gnu-ubuntu-16.04 clang_5
 
-ENV PATH="/clang_5.0.2/bin:/usr/bin/cmake/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/clang_5.0.2/lib:${LD_LIBRARY_PATH}"
-ENV CC="/clang_5.0.2/bin/clang"
-ENV CXX="/clang_5.0.2/bin/clang++"
+ENV PATH="/clang_5/bin:/usr/bin/cmake/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/clang_5/lib:${LD_LIBRARY_PATH}"
+ENV CC="/clang_5/bin/clang"
+ENV CXX="/clang_5/bin/clang++"

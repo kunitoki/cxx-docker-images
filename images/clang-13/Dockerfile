@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.23.2
+ARG CMAKE_VERSION=3.28.0
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
@@ -35,9 +35,9 @@ RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION
     && rm /tmp/curl-install.sh
 
 RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/clang+llvm-13.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz | tar -xJC . \
-    && mv clang+llvm-13.0.1-x86_64-linux-gnu-ubuntu-18.04 clang_13.0.1
+    && mv clang+llvm-13.0.1-x86_64-linux-gnu-ubuntu-18.04 clang_13
 
-ENV PATH="/clang_13.0.1/bin:/usr/bin/cmake/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/clang_13.0.1/lib:${LD_LIBRARY_PATH}"
-ENV CC="/clang_13.0.1/bin/clang"
-ENV CXX="/clang_13.0.1/bin/clang++"
+ENV PATH="/clang_13/bin:/usr/bin/cmake/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/clang_13/lib:${LD_LIBRARY_PATH}"
+ENV CC="/clang_13/bin/clang"
+ENV CXX="/clang_13/bin/clang++"

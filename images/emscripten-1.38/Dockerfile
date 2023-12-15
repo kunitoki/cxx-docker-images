@@ -1,7 +1,7 @@
 FROM debian:buster
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.23.2
+ARG CMAKE_VERSION=3.28.0
 ARG EMSCRIPTEN_VERSION=1.38.48
 
 RUN apt-get -qq update -y \
