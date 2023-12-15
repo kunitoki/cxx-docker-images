@@ -6,8 +6,10 @@ ARG CMAKE_VERSION=3.28.0
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
-        python \
+        python3 \
         ninja-build \
+        libc-dev-bin \
+        binutils-common \
         ccache \
         git \
     && apt-get clean -y \
