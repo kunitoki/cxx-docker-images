@@ -24,6 +24,7 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
         gcc-9 \
         g++-9 \
         libc++-dev \
+        libtbb-dev \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
