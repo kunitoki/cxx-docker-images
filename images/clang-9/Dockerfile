@@ -3,7 +3,8 @@ LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.28.0
 
-RUN apt-get -qq update -y \
+RUN echo "deb http://old-releases.ubuntu.com/ubuntu eoan main universe" >> /etc/apt/sources.list \
+    && apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
         software-properties-common \
@@ -23,6 +24,8 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get -qq install -y --no-install-recommends \
         gcc-9 \
         g++-9 \
+        libc++-dev \
+        libtbb-dev \
     && apt-get clean -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
