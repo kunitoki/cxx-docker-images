@@ -3,7 +3,9 @@ LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
 ARG CMAKE_VERSION=3.28.0
 
-RUN apt-get -qq update -y \
+RUN echo "deb http://old-releases.ubuntu.com/ubuntu eoan main universe" \
+        | sudo tee -a  /etc/apt/sources.list \
+    && apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
         software-properties-common \
