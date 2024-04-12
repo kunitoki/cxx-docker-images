@@ -1,0 +1,91 @@
+FROM ubuntu:20.04
+LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
+
+ARG CMAKE_VERSION=3.18.3
+ARG NDK_VERSION=23.2.8568313
+
+WORKDIR /opt
+
+ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV ANDROID_NDK /opt/android-sdk-linux/ndk/${NDK_VERSION}
+ENV ANDROID_NDK_HOME /opt/android-sdk-linux/ndk/${NDK_VERSION}
+ENV PATH "${PATH}:/usr/bin/cmake/bin"
+ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/platform-tools"
+ENV PATH "${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin"
+
+RUN apt-get -qq update -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends \
+        ca-certificates \
+        software-properties-common \
+        build-essential \
+        python3 \
+        python3-pip \
+        virtualenv \
+        ninja-build \
+        zip \
+        unzip \
+        curl \
+        ccache \
+        xz-utils \
+        git \
+    && apt-get clean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN add-apt-repository ppa:openjdk-r/ppa \
+    && apt-get -qq update -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends \
+        openjdk-17-jdk \
+        libc6 \
+        libgcc1 \
+        libglu1 \
+        libncurses5 \
+        libstdc++6 \
+        libz1 \
+        net-tools \
+    && apt-get clean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN mv /etc/ssl/certs/java/cacerts /etc/ssl/certs/java/cacerts.old \
+    && keytool -importkeystore \
+        -destkeystore /etc/ssl/certs/java/cacerts \
+        -deststoretype jks \
+        -deststorepass changeit \
+        -srckeystore /etc/ssl/certs/java/cacerts.old \
+        -srcstoretype pkcs12 \
+        -srcstorepass changeit \
+    && rm /etc/ssl/certs/java/cacerts.old
+
+RUN update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
+RUN update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+
+RUN curl -SL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o android-commandline-tools.zip \
+    && mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools \
+    && unzip -q android-commandline-tools.zip -d /tmp/ \
+    && mv /tmp/cmdline-tools/ ${ANDROID_SDK_ROOT}/cmdline-tools/latest \
+    && rm android-commandline-tools.zip && ls -la ${ANDROID_SDK_ROOT}/cmdline-tools/latest/
+
+RUN yes | sdkmanager --licenses
+RUN touch /root/.android/repositories.cfg
+RUN yes | sdkmanager "platform-tools"
+RUN yes | sdkmanager --update --channel=0
+
+# Please keep all sections in descending order!
+RUN yes | sdkmanager \
+    "platforms;android-34" \
+    "build-tools;33.0.3" \
+    "extras;android;m2repository" \
+    "extras;google;m2repository" \
+    "extras;google;google_play_services" \
+    "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" \
+    "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1"
+
+RUN curl -SL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh -o /tmp/curl-install.sh \
+    && chmod u+x /tmp/curl-install.sh \
+    && mkdir /usr/bin/cmake \
+    && /tmp/curl-install.sh --skip-license --prefix=/usr/bin/cmake \
+    && rm /tmp/curl-install.sh
+
+RUN yes | sdkmanager "ndk;${NDK_VERSION}"
