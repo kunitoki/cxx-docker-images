@@ -58,8 +58,8 @@ RUN mv /etc/ssl/certs/java/cacerts /etc/ssl/certs/java/cacerts.old \
         -srcstorepass changeit \
     && rm /etc/ssl/certs/java/cacerts.old
 
-RUN update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-RUN update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+RUN update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+RUN update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
 RUN curl -SL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o android-commandline-tools.zip \
     && mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools \
