@@ -1,7 +1,7 @@
 FROM gcc:10
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.28.0
+ARG CMAKE_VERSION=3.29.2
 
 RUN apt-get -qq update -y \
     && apt-get -qq install -y --no-install-recommends \

@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.18.3
+ARG CMAKE_VERSION=3.29.2
 ARG NDK_VERSION=23.2.8568313
 
 WORKDIR /opt

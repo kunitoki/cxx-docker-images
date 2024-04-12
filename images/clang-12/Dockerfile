@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 LABEL maintainer="Lucio Asnaghi <kunitoki@gmail.com>"
 
-ARG CMAKE_VERSION=3.28.0
+ARG CMAKE_VERSION=3.29.2
 
 RUN echo "deb http://old-releases.ubuntu.com/ubuntu eoan main universe" >> /etc/apt/sources.list \
     && apt-get -qq update -y \
