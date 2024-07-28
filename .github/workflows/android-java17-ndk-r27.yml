@@ -1,11 +1,11 @@
-name: android-ndk-r23 Docker Image
+name: android-java17-ndk-r27 Docker Image
 
 on:
   push:
     branches: [ master ]
     paths:
-      - "**/android-ndk-r23/*"
-      - "**/android-ndk-r23.yml"
+      - "**/android-java17-ndk-r27/*"
+      - "**/android-java17-ndk-r27.yml"
 
 jobs:
   main:
@@ -30,9 +30,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: images/android-ndk-r23/
-          file: images/android-ndk-r23/Dockerfile
-          tags: kunitoki/android-ndk-r23:latest
+          context: images/android-java17-ndk-r27/
+          file: images/android-java17-ndk-r27/Dockerfile
+          tags: kunitoki/android-java17-ndk-r27:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
